@@ -1,0 +1,2 @@
+import './coinComponent.js';
+
