@@ -8,9 +8,8 @@ rutas.get('/' , (req,res) =>
 })
 
 
-rutas.get('/saludo' , (req,res) => 
+rutas.get('/ann' , (req,res) => 
 {
-    
     let mydata = [];
   var fs = require('fs');
 var pepe = require('jquery-csv');
@@ -26,8 +25,6 @@ fs.readFile(sample, 'UTF-8', function (err, csv) {
   });
   res.send( mydata);
 });
-
-   
 })
 
 
