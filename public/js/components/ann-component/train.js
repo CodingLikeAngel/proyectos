@@ -1,34 +1,29 @@
-
-
-export class Train 
-{
-
-    _conexiones_CapaOculta_Entrada = [];
-    _conexiones_CapaOculta_Salida = [];
-    _conexiones_Entrada_Salida = [];
+  let  _conexiones_CapaOculta_Entrada = [];
+   let _conexiones_CapaOculta_Salida = [];
+   let _conexiones_Entrada_Salida = [];
    
-    _pesos_Entrada_Salida = [];
+  let   _pesos_Entrada_Salida = [];
 
-    static createArray(length) {
+     const createArray = (length) => {
         let arr = new Array(length || 0),
             i = length;
     
         if (arguments.length > 1) {
             var args = Array.prototype.slice.call(arguments, 1);
-            while(i--) arr[length-1 - i] = this.createArray.apply(this, args);
+            while(i--) arr[length-1 - i] = createArray.apply(this, args);
         }
     
         return arr;
     }
 
-    static EntrenarOfflineParadatemprana(iteracciones, entradasTotales, neuronasCapaOcultatotales , salidasTotales) {
-        this.CrearPesosAleatoriosIniciales(neuronasCapaOcultatotales, entradasTotales , salidasTotales);
+    export const entrenarOfflineParadatemprana = (iteracciones, entradasTotales, neuronasCapaOcultatotales , salidasTotales) => {
+        crearPesosAleatoriosIniciales(neuronasCapaOcultatotales, entradasTotales , salidasTotales);
     } 
     
     
 
-   static CrearPesosAleatoriosIniciales(neuronasCapaOcultatotales, entradasTotales , salidasTotales){
-    let _pesos_CapaOculta_Entrada = this.createArray(neuronasCapaOcultatotales,entradasTotales);
+    const crearPesosAleatoriosIniciales = (neuronasCapaOcultatotales, entradasTotales , salidasTotales) =>{
+    let _pesos_CapaOculta_Entrada = createArray(neuronasCapaOcultatotales,entradasTotales);
   
 
         for (let i = 0; i < neuronasCapaOcultatotales ; i++)
@@ -39,7 +34,8 @@ export class Train
 			}
 		}
 		
-
+    }
+    
 
         
 	/*	for (let i = 0; i < salidasTotales ; i++)
@@ -55,10 +51,10 @@ export class Train
 				}
 			}
 		}	*/	
-    }
 
 
-}
+
+
 
 
 /*

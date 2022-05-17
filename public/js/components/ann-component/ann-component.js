@@ -107,7 +107,7 @@ class AnnComponent extends HTMLElement {
        }
 
 
-       Trainer.Train.EntrenarOfflineParadatemprana(1,this._input.length ,this.hiddenLayerGenotype.length, 1);
+       Trainer.entrenarOfflineParadatemprana(1,this._input.length ,this.hiddenLayerGenotype.length, 1);
 
     }
 
