@@ -1,3 +1,5 @@
+import * as Trainer from './train.js';
+
 class AnnComponent extends HTMLElement {
 
     _input = [];
@@ -105,6 +107,8 @@ class AnnComponent extends HTMLElement {
        }
 
 
+       Trainer.Train.EntrenarOfflineParadatemprana(1,this._input.length ,this.hiddenLayerGenotype.length, 1);
+
     }
 
 
@@ -148,6 +152,13 @@ class AnnComponent extends HTMLElement {
     
         return  parseFloat(random) < 0.499 ? 0 : 1;
     }
+    
+
+
+
+
+
+
     
 
 }

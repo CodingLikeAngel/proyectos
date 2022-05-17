@@ -1,2 +1,2 @@
 import './coinComponent.js';
-import './../ann-component/ann-component.js'
+import './../ann-component/ann-component.js';

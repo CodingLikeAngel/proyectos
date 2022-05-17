@@ -27,8 +27,8 @@ class CoinObject extends HTMLElement {
 
         //https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=
 
-         fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/historical?symbol=BTC&CMC_PRO_API_KEY=' +  apikey.key).then(response => response.json())
-        .then(data =>  console.log(data)/* mainContainer.innerText = JSON.stringify(data)*/);
+    //     fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/historical?symbol=BTC&CMC_PRO_API_KEY=' +  apikey.key).then(response => response.json())
+      //  .then(data =>  console.log(data)/* mainContainer.innerText = JSON.stringify(data)*/);
         //oReq.send();
     }
 
