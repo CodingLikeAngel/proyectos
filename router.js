@@ -8,6 +8,21 @@ rutas.get('/' , (req,res) =>
 })
 
 
+
+rutas.get('/vue' , (req,res) => 
+{
+   res.sendFile('C:/Users/aniet/Desktop/proyectos/ann/vue.html');
+})
+
+
+
+
+rutas.get('/react' , (req,res) => 
+{
+  res.sendFile('C:/Users/aniet/Desktop/proyectos/ann/react.html');
+})
+
+
 rutas.get('/ann' , (req,res) => 
 {
     let mydata = [];

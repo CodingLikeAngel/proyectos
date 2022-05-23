@@ -10,8 +10,9 @@ class AnnComponent extends HTMLElement {
     _inputNeuronsPosition = [];
     _hiddenLayerNeuronsPosition = [];
     hiddenLayerGenotype = [];
+ 
 
-    
+
     connectedCallback() {
         if (this._canvas.getContext) {
             this._ctx = this._canvas.getContext('2d');
@@ -34,8 +35,8 @@ class AnnComponent extends HTMLElement {
        for(let i= 0 ; i< this._input.length ; i++)
        {
         this._ctx.fillStyle = 'rgb(200, 0, 0)';
-        this._ctx.fillRect(10,  i *  (900/this._input.length) + 900/this._input.length, 15, 15);
-        this._inputNeuronsPosition.push( i *  (900/this._input.length) + 900/this._input.length);
+        this._ctx.fillRect(10,  i *  (this._canvas.width/this._input.length) + (this._canvas.width/this._hiddenLayer.length), 15, 15);
+        this._inputNeuronsPosition.push( i *  (this._canvas.width/this._input.length) + (this._canvas.width/this._hiddenLayer.length));
         console.log(this._inputNeuronsPosition[i]);
        }
 
@@ -107,14 +108,14 @@ class AnnComponent extends HTMLElement {
        }
 
 
-       Trainer.entrenarOfflineParadatemprana(1,this._input.length ,this.hiddenLayerGenotype.length, 1);
+       Trainer.entrenarOfflineParadatemprana(1,this._input.length ,this.hiddenLayerGenotype.length, 1 ,  this.hiddenLayerGenotype , this._input ,  this._hiddenLayer);
 
     }
 
 
     createInput()
     {
-        for(let i= 0 ; i<6 ; i++)
+        for(let i= 0 ; i<2 ; i++)
         {
            this._input.push(this.getRandom());
         }
@@ -123,7 +124,7 @@ class AnnComponent extends HTMLElement {
 
     createHiddenLayer()
     {
-        for(let i= 0 ; i<this.getRandomArbitrary(1,50) ; i++)
+        for(let i= 0 ; i<this.getRandomArbitrary(1,5) ; i++)
         {
            this._hiddenLayer.push(this.getRandom());
         }
@@ -150,17 +151,8 @@ class AnnComponent extends HTMLElement {
     {
         const random =  Math.random();
     
-        return  parseFloat(random) < 0.499 ? 0 : 1;
+        return  parseFloat(random) < 0.3 ? 0 : 1;
     }
-    
-
-
-
-
-
-
-    
-
 }
 
 
