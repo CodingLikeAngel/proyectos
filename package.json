@@ -8,20 +8,25 @@
     "cors": "^2.8.5",
     "ejs": "^3.1.7",
     "express": "^4.18.1",
+    "grunt-exec": "^3.0.0",
     "jquery-csv": "^1.0.21",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.16",
-    "react": "^18.1.0"
+    "react": "^18.1.0",
+    "snowpack": "^3.8.8"
   },
   "devDependencies": {
     "grunt": "^1.5.3",
     "grunt-cli": "^1.4.3",
-    "grunt-express": "^1.4.1"
+    "grunt-express": "^1.4.1",
+    "grunt-run": "^0.8.1",
+    "snowpack": "^3.8.8"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app",
-    "start": "grunt start"
+    "start": "grunt start",
+    "build": "snowpack build"
   },
   "repository": {
     "type": "git",

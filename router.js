@@ -1,45 +1,56 @@
 const express = require('express');
 const rutas = express.Router();
 
-
-rutas.get('/' , (req,res) => 
-{
-    res.render('./pages/index')
+rutas.get('/', (req, res) => {
+  
+  res.render('./pages/index', {mydata: []})
 })
 
 
-
-rutas.get('/vue' , (req,res) => 
-{
-   res.sendFile('C:/Users/aniet/Desktop/proyectos/ann/vue.html');
+rutas.get('/vue', (req, res) => {
+  res.sendFile('C:/Users/aniet/Desktop/proyectos/ann/vue.html');
 })
 
 
-
-
-rutas.get('/react' , (req,res) => 
-{
+rutas.get('/react', (req, res) => {
   res.sendFile('C:/Users/aniet/Desktop/proyectos/ann/react.html');
 })
 
 
-rutas.get('/ann' , (req,res) => 
-{
-    let mydata = [];
+rutas.get('/ann', (req, res) => {
+  let mydata = [];
   var fs = require('fs');
-var pepe = require('jquery-csv');
-var sample =  './data.csv';
-fs.readFile(sample, 'UTF-8', function (err, csv) {
-  if (err) { console.log(err); }
-  pepe.toArrays(csv, {}, function (err, data) {
+  var pepe = require('jquery-csv');
+  var sample = './data.csv';
+  fs.readFile(sample, 'UTF-8', function (err, csv) {
     if (err) { console.log(err); }
-    for (var i = 0, len = data.length; i < len; i++) {
-   //   console.log(data[i]);
-     mydata.push(data[i]);
-    }
+    pepe.toArrays(csv, {}, function (err, data) {
+      if (err) { console.log(err); }
+      for (var i = 0, len = data.length; i < len; i++) {
+        mydata.push(data[i]);
+      }
+    });
+    res.send({mydata});
   });
-  res.send( mydata);
-});
+})
+
+
+
+rutas.get('/pepe', (req, res) => {
+  let mydata = [];
+  var fs = require('fs');
+  var pepe = require('jquery-csv');
+  var sample = './data.csv';
+  fs.readFile(sample, 'UTF-8', function (err, csv) {
+    if (err) { console.log(err); }
+    pepe.toArrays(csv, {}, function (err, data) {
+      if (err) { console.log(err); }
+      for (var i = 0, len = data.length; i < len; i++) {
+        mydata.push(data[i]);
+      }
+    });
+    res.render('./pages/index', {mydata: mydata});
+  });
 })
 
 
